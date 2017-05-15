@@ -99,18 +99,7 @@ This project is developed in Laravel 5.4. It will help us to send form data in L
 
 	
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-     return view('user');
-    }
-
-    
-	<?php
+	//<?php
 
 namespace App\Http\Controllers;
 
@@ -122,6 +111,15 @@ use Illuminate\Support\Facades\Input;
 
 class PhotoController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+     return view('user');
+    }
 
     /**
      * Show the form for creating a new resource.
