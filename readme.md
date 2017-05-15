@@ -1,7 +1,8 @@
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 
-This project is developed in Laravel 5.4. It will help us to send form data in Laravel with the help of AJAX.
+
+This project is developed in Laravel 5.4. It will help us to send Form data in Laravel with the help of AJAX.
 
 ## Installation
 
@@ -17,7 +18,7 @@ This project is developed in Laravel 5.4. It will help us to send form data in L
 1. First run this code and click Click here link.You will see the form page.
 2. In the signup form (i.e. resources/views/user.blade.php) you will find a form, an empty div and ajax script :
    
-   Form must have id, get method and submit button id
+   Form must have id, get method and submit button id. AJAX Script samepage: Now Ajax should be of method get, action not required
 
    ```
 
@@ -35,11 +36,7 @@ This project is developed in Laravel 5.4. It will help us to send form data in L
     <div class="msg"></div>   <!-- empty div for showing msg  -->
 </center>
 
-   ```
 
-    AJAX Script samepage: Now Ajax should be of method get, action not required
-
-   ```
 
    <script type="text/javascript">
 
