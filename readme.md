@@ -1,8 +1,5 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-
-
-This project is developed in Laravel 5.4. It will help us to send Form data in Laravel with the help of AJAX.
+This project is developed in Laravel 5.4. It will help us to send form data in Laravel with the help of AJAX.
 
 ## Installation
 
@@ -33,8 +30,8 @@ This project is developed in Laravel 5.4. It will help us to send Form data in L
        <button type="submit" class="btn btn-warning" name="submit" id="submit">Submit</button>  <!-- button id must -->
    </form>
 
-    <div class="msg"></div>   <!-- empty div for showing msg  -->
-</center>
+    <div class="msg"></div>   //empty div for showing msg
+	</center>
 
 
 
