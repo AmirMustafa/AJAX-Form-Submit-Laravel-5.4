@@ -71,7 +71,7 @@ This project is developed in Laravel 5.4. It will help us to send form data in L
         /*alert('Successfully Loaded');*/
             });                 
         });</script>
-</script>
+
 
    
 
