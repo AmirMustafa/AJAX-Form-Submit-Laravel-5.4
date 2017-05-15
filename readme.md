@@ -212,3 +212,12 @@ class PhotoController extends Controller
 	
 
 ## Looks
+
+![Screenshot of Laravel Form AJAX Submission ](https://cloud.githubusercontent.com/assets/15896579/26039181/3021a2e6-3935-11e7-9d01-864f2ef05e6e.png?raw=true "Screenshot of Laravel Form AJAX Submission")
+<br/><br/><br/>
+
+![Screenshot of Laravel Form AJAX Submission ](https://cloud.githubusercontent.com/assets/15896579/26039183/33a4ccb8-3935-11e7-9d0f-3f4a2c564ac1.png?raw=true "Screenshot of Laravel Form AJAX Submission")
+<br/><br/><br/>
+
+![Screenshot of Laravel Form AJAX Submission ](https://cloud.githubusercontent.com/assets/15896579/26039184/36216e10-3935-11e7-8818-c17c0cfb594f.png?raw=true "Screenshot of Laravel Form AJAX Submission")
+<br/><br/><br/>
