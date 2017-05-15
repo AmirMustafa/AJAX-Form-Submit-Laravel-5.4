@@ -1,52 +1,220 @@
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
 
-## About Laravel
+This project is developed in Laravel 5.4. It will help us to send form data in Laravel with the help of AJAX.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+## Installation
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+1. Download or Clone the repository
+2. Keep this project in server or XAMPP
+3. jQuery must be added(Added jQuery CDN)
+3. Run this code through XAMPP
+4. Try filling the form and submitting data will response in alert without refreshing the page. Hence AJAX successful
+5. I ahave commented the code properly for better understanding
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation give you tools you need to build any application with which you are tasked.
+## Logic
 
-## Learning Laravel
+1. First run this code and click Click here link.You will see the form page.
+2. In the signup form (i.e. resources/views/user.blade.php) you will find a form, an empty div and ajax script :
+   
+   Form must have id, get method and submit button id
 
-Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is thorough, complete, and makes it a breeze to get started learning the framework.
+   ```
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 900 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+   <center>
+      
+      <h1> Sending Data through AJAX Laravel</h1><br><br>
+       <form id="myForm" style="width: 40%" method="get">		<!-- form id must -->
+       <input type="text" class="form-control" name="fname" id="fname" placeholder="First Name"><br>
+       <input type="text" class="form-control" name="lname" id="lname" placeholder="Last Name"><br>
+       <input type="text" class="form-control" name="email" id="email" placeholder="Email"><br>
+       <input type="text" class="form-control" name="password" id="password" placeholder="Password"><br>
+       <button type="submit" class="btn btn-warning" name="submit" id="submit">Submit</button>  <!-- button id must -->
+   </form>
 
-## Laravel Sponsors
+    <div class="msg"></div>   <!-- empty div for showing msg  -->
+</center>
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](http://patreon.com/taylorotwell):
+   ```
 
-- **[Vehikl](http://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Styde](https://styde.net)**
-- **[Codecourse](https://www.codecourse.com)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
+    AJAX Script samepage: Now Ajax should be of method get, action not required
 
-## Contributing
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+   <script type="text/javascript">
 
-## Security Vulnerabilities
+        $(document).ready(function() {
+          $("#submit").click(function() {   //button id
+             var loginForm = $("#myForm");  //form id
+             loginForm.submit(function(e){
+                 e.preventDefault();
+                 var formData = loginForm.serialize();
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+                 /*alert(formData);*/
 
-## License
+                    $.ajax({
+                        url:"create",
+                        type:'get',
+                        data:formData,
+                        success:function(data){
+                            //alert(data); 	//for redirecting instead of alert try below code
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+                            if(data == "") {		//True Case i.e. passed validation
+                            window.location = {{route('Your_Route_to Redirect_to_Homepage')}}
+                            }
+                            else {					//False Case: With error msg
+                            $("#msg").html(data);	//$msg is the id of empty msg
+                            }
+                            
+                        },
+                        error: function (data) {
+                            /*console.log(data);*/
+                            alert(data);
+                        }
+                    });
+                });
+
+        /*alert('Successfully Loaded');*/
+            });                 
+        });
+</script>
+
+   ```
+
+3. Now goto Routes(i.e. routes/web.php) to handle set it:
+
+	```
+
+	Route::get('/', function () {	// welcome page click here route
+	    return view('welcome');
+	});
+	/*Route::get('/', 'PhotoController@index');*/
+	/*Route::get('/user', 'PhotoController@index');*/
+
+	Route::get('/user', [						//opening the signup page through this route
+	    'uses' => 'PhotoController@index',		//controller to pass and function
+	    'as' => '/user'							//name of the route
+	]);
+
+	Route::get('/create', 'PhotoController@create');	//create is the route for receiving form submit via AJAX
+	Route::get('store', 'PhotoController@store');
+
+	```
+
+4. No we goto PhotoController Controller(i.e. app/http/controller/PhotoController.php)
+
+	```
+
+	<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use App\Data;
+use Validator;
+use Illuminate\Support\Facades\Input;
+
+class PhotoController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+     return view('user');
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(Request $request)                //Receiving AJAX Request Data here
+    {
+       echo $fname = $_GET['fname'];						//Way of receiving AJAX Data
+		echo "<br>";
+		echo $lname = $_GET['lname'];
+
+        //Now instead of echoing the variable you can write Insert Query here
+
+        /*
+            $insert = DB::insert('insert into usr_dtls (first_name, last_name, username, email,password ) values (?, ?, ?, ?, ?)', [$data['first_name'], $data['last_name'], $data['user_name'], $data['uemail'], $data['user_pass1']]);
+
+            To redirect through AJAX use window.location in AJAX script in
+
+            
+
+            }
+        */
+	
+	
+		
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        /*$fname = $_POST['formData'];
+		echo $fname;*/
+		echo "hello";
+		    /*return view('user');*/
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+}
+
+
+	```
+
+## Looks
