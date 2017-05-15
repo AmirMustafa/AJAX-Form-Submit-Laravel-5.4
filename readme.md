@@ -1,4 +1,6 @@
+<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
+# AJAX-Form-Submit-Laravel-5.4
 This project is developed in Laravel 5.4. It will help us to send Form data in Laravel with the help of AJAX.
 
 ## Installation
@@ -221,3 +223,35 @@ class PhotoController extends Controller
 
 ![Screenshot of Laravel Form AJAX Submission ](https://cloud.githubusercontent.com/assets/15896579/26039184/36216e10-3935-11e7-8818-c17c0cfb594f.png?raw=true "Screenshot of Laravel Form AJAX Submission")
 <br/><br/><br/>
+
+
+## License
+
+(The MIT License)
+
+Copyright (c) 2016 Amir Mustafa
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+
+
+
