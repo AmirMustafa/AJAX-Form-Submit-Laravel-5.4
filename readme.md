@@ -1,5 +1,5 @@
 
-This project is developed in Laravel 5.4. It will help us to send form data in Laravel with the help of AJAX.
+This project is developed in Laravel 5.4. It will help us to send Form data in Laravel with the help of AJAX.
 
 ## Installation
 
@@ -8,7 +8,7 @@ This project is developed in Laravel 5.4. It will help us to send form data in L
 3. jQuery must be added(Added jQuery CDN)
 3. Run this code through XAMPP
 4. Try filling the form and submitting data will response in alert without refreshing the page. Hence AJAX successful
-5. I ahave commented the code properly for better understanding
+5. I have commented the code properly for better understanding
 
 ## Logic
 
