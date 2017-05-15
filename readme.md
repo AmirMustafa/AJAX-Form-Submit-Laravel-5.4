@@ -93,11 +93,11 @@ This project is developed in Laravel 5.4. It will help us to send form data in L
 	Route::get('/create', 'PhotoController@create');	//create is the route for receiving form submit via AJAX
 	Route::get('store', 'PhotoController@store');
 
-	
+	```
 
 4. No we goto PhotoController Controller(i.e. app/http/controller/PhotoController.php)
 
-	```
+	
 
 	<?php
 
