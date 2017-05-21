@@ -3,7 +3,7 @@ This project is developed in Laravel 5.4. It will help us to send Form data in L
 
 ## Installation
 
-1. Download or Clone the repository
+1. Download or Clone the repository 
 2. Keep this project in server or XAMPP
 3. jQuery must be added(Added jQuery CDN)
 3. Run this code through XAMPP
