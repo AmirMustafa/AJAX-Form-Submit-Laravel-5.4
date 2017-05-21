@@ -1,4 +1,4 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+<p><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 # AJAX-Form-Submit-Laravel-5.4
 This project is developed in Laravel 5.4. It will help us to send Form data in Laravel with the help of AJAX.
